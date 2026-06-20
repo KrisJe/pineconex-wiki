@@ -139,6 +139,10 @@ PineconEx reads the `minval` and `maxval` from each annotated input to define th
 - **Heatmap** — net profit (or any metric) plotted as a colour grid over the two swept parameters. Reveals whether good performance is isolated (fragile) or spread across a region (robust).
 - **Ranked runs** — all completed trials sorted by the chosen metric. Click any row to drill into that run's full backtest results.
 
+### Time limits
+
+Sweeps and backtests run under a maximum wall-clock time. A job that exceeds its limit is stopped automatically and marked **failed** — so a very large grid or a long date range may need to be narrowed to finish in time. Live bots are not time-limited.
+
 ---
 
 ## Walk-Forward Analysis
