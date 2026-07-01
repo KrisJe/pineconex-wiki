@@ -1,8 +1,8 @@
-# PineconEx Documentation
+# PineconeX Documentation
 
 > **Version:** v0.1.0-alpha
 
-PineconEx is a SaaS platform for backtesting and live-trading **Pine Script v6** strategies against real market data. Write your strategy once — backtest it, sweep its parameters, walk-forward validate it, then deploy it live against a connected broker, all from the same interface.
+PineconeX is a SaaS platform for backtesting and live-trading **Pine Script v6** strategies against real market data. Write your strategy once — backtest it, sweep its parameters, walk-forward validate it, then deploy it live against a connected broker, all from the same interface.
 
 ---
 
@@ -134,7 +134,7 @@ fast = input.int(10, minval=2, maxval=50)
 slow = input.int(30, minval=10, maxval=200)
 ```
 
-PineconEx reads the `minval` and `maxval` from each annotated input to define the search bounds automatically.
+PineconeX reads the `minval` and `maxval` from each annotated input to define the search bounds automatically.
 
 ### Sweep modes
 
@@ -212,8 +212,8 @@ When auto-restart is on, the platform will restart the bot automatically if it c
 It is important to understand how a live bot turns a strategy signal into a broker order:
 
 - **Bots act on bar close.** On each new completed bar, the bot evaluates your strategy. When the strategy opens or closes a position, the bot submits a **market order** to your connected broker at that moment.
-- **The reported price is the bar close (the signal price), not the actual fill.** PineconEx records and displays the entry/exit at the closing price of the signal bar. The bot submits the order but does **not** read back the broker's true execution price — so any **slippage** between the signal price and the real fill is not reflected in PineconEx.
-- **PineconEx does not track your live profit & loss.** It records lifecycle events (started, stopped, crashed) and the signals it acted on, but it does not reconcile actual fills, partial fills, or rejections. **Your broker account is the source of truth** for real positions, fills, and P&L — always confirm there.
+- **The reported price is the bar close (the signal price), not the actual fill.** PineconeX records and displays the entry/exit at the closing price of the signal bar. The bot submits the order but does **not** read back the broker's true execution price — so any **slippage** between the signal price and the real fill is not reflected in PineconeX.
+- **PineconeX does not track your live profit & loss.** It records lifecycle events (started, stopped, crashed) and the signals it acted on, but it does not reconcile actual fills, partial fills, or rejections. **Your broker account is the source of truth** for real positions, fills, and P&L — always confirm there.
 
 > Because of this, live results can differ from a backtest even on identical signals: a backtest fills at modelled prices, while a live order fills at whatever the market gives you. Treat the bot's reported prices as the *signal* price, and your broker statement as the *settled* price.
 
